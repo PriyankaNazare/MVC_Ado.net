@@ -1,1 +1,1 @@
-# MVC_Ado.net
+Sample project for MVC Ado.net
