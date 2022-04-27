@@ -1,0 +1,74 @@
+﻿@using System.Data
+@using System.Data.SqlClient
+@Model 
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Home</title>
+</head>
+<body>
+    <div>
+        <form method="post" name="Display">
+            <h2>Home</h2>
+            @Html.ActionLink("Add new Record", "Insert")
+            <br />
+            @{
+                if (Model.Rows.Count > 0)
+                {
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>
+                                    <b>
+                                        Student Id
+                                    </b>
+                                </td>
+                                <td>
+                                    <b>
+                                        Name
+                                    </b>
+                                </td>
+                                <td>
+                                    <b>
+                                        Age
+                                    </b>
+                                </td>
+                                <td>
+                                    <b>
+                                        Gender
+                                    </b>
+                                </td>
+                            </tr>
+                        </thead>
+                        @foreach (DataRow dr in Model.Rows)
+                        {
+                            <tr>
+                                <td>@dr["Student_Id"].ToString()</td>
+                                <td>@dr["Student_Name"].ToString()</td>
+                                <td>@dr["Student_Age"].ToString()</td>
+                                <td>@dr["Student_Gender"].ToString()</td>
+                                <td>@Html.ActionLink("Edit", "Edit", new { StudentId = dr["Student_Id"] }) </td>
+                                <td>@Html.ActionLink("Delete", "Delete", new { StudentId = dr["Student_Id"] }) </td>
+                            </tr>
+
+                        }
+                    </table>
+                    <br/>
+                }
+
+                else
+                {
+                    <span>No Records Found</span>
+                }
+            }
+        </form>
+    </div>
+</body>
+</html>

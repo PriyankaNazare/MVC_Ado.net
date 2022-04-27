@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Insert</title>
+</head>
+<body>
+<form id="FrmDetails" method="post" action="@Url.Action("InsertRecord")">
+    Enter Name: <input type="text" name="txtName" />
+    Enter Age: <input type="text" name="txtAge" />
+    Select Gender: <input type="radio" name="gender" value="M" checked="checked" />Male
+    <input type="radio" name="gender" value="F" />Female
+    <br/>
+    <input type="submit" name="action" value="Submit" />
+    <input type="submit" name="action" value="Cancel" />
+
+</form>
+</body>
+</html>
+
+
+

@@ -1,0 +1,33 @@
+﻿@using System.Data
+@using System.Data.SqlClient
+@Model 
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+    <form id="frmEditDetails" method="post" action="@Url.Action("UpdateRecord")">
+        Enter Name- <input name="txtName" value="@Model.Rows[0]["Student_Name"]" />
+        Enter Age-  <input name="txtAge" value="@Model.Rows[0]["Student_Age"]" />
+        Select Gender-
+        @if (Model.Rows[0]["Student_Gender"].ToString() == "M")
+        {
+            <input type="radio" name="gender" value="M" checked />@Html.Raw("M")
+            <input type="radio" name="gender" value="F"/>@Html.Raw("F")
+        }
+        else
+        {
+            <input type="radio" name="gender" value="M"  />@Html.Raw("M")
+            <input type="radio" name="gender" value="F" checked />@Html.Raw("F")
+        }
+        <input type="hidden" name="hdnId" value="@Model.Rows[0]["Student_Id"]" />
+        <br/>
+        <input type="submit" name="action" value="Submit" />
+        <input type="submit" name-"action" value="Cancel" />
+
+    </form>
+    </body>
+</html>
+
